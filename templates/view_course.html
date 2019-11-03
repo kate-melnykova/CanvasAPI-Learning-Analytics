@@ -1,5 +1,37 @@
 {% extends 'base.html' %}
 
 {% block form %}
-    <h2>{{ course }}</h2>
+    <h2>{{ course[0].subject_code }} {{course[0].course_number}}</h2>
+    <p>{{course[0].course_description}}</p>
+    <p> Credits: {{course[0].credits}}</p>
+    <p> Pre-requisitives: TO BE ADDED </p>
+    <div>
+        <table style="width=80%">
+            <tr>
+                <th> Section </th>
+                <th> Activity </th>
+                <th> Term </th>
+                <th> Days </th>
+                <th> StartTime</th>
+                <th> EndTime</th>
+                <th> Instructor </th>
+                <th> Building </th>
+                <th> Room number</th>
+            </tr>
+            {% for section in courses %}
+            <tr>
+                <td> {{section.section_number}} </td>
+                <td> {{section.section_type}} </td>
+                <td> {{section.term}} </td>
+                <td> {{section.daysmet}}</td>
+                <td> {{section.start_time}}</td>
+                <td> {{section.end_time}}</td>
+                <td> {{section.instructors}}</td>
+                <td> {{section.building}} </td>
+                <td> {{section.room_number}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
 {% endblock %}

@@ -2,9 +2,7 @@ from typing import List, Tuple
 import json
 import os.path
 
-import pandas as pd
 import numpy as np
-
 import pandas as pd
 
 df = pd.read_csv('./data/ubc_course_calendar_data.csv')

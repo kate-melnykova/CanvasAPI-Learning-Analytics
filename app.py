@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, url_for,\
 from auth.crypting import aes_encrypt, aes_decrypt
 from auth.model import User, AnonymousUser
 from data.data_processing import add_prereqs
+from data.user_pre_reqs import fill_user_prereq
 
 app = Flask(__name__)
 app.secret_key = '4527e79a-17ef-4749-8dd4-7699e589e2b8'
@@ -47,6 +48,7 @@ def login_processing():
     r.set_cookie('year', '2018W1')
     r.set_cookie('term', '1')
     r.set_cookie('campus', 'UBC')
+    fill_user_prereq()
     return r
 
 
@@ -55,6 +57,12 @@ def login_processing():
 def search_courses():
     return render_template('search_courses.html')
 
+
+@app.route('/view_course')
+@login_required
+def view_course(subject_code, course_number):
+    # select all section
+    return 'In progress'
 
 @app.route('/update_course_calendar')
 def update_course_calendar():
