@@ -7,6 +7,7 @@ from auth.crypting import aes_encrypt, aes_decrypt
 from auth.model import User, AnonymousUser
 from data.data_processing import add_prereqs
 from data.user_pre_reqs import fill_user_prereq
+from data.select_all_sections import select_all_sections
 
 app = Flask(__name__)
 app.secret_key = '4527e79a-17ef-4749-8dd4-7699e589e2b8'
@@ -60,9 +61,15 @@ def search_courses():
 
 @app.route('/view_course')
 @login_required
-def view_course(subject_code, course_number):
+def view_course():
+    subject_code = request.args.get('subject_code')
+    course_number = request.args.get('course_number')
+    # print(subject_code, course_number)
     # select all section
-    return 'In progress'
+    courses = select_all_sections(subject_code, course_number)
+    # print(courses[0].prereq_list)
+    return render_template('view_course.html', courses=courses)
+
 
 @app.route('/update_course_calendar')
 def update_course_calendar():

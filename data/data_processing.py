@@ -5,7 +5,7 @@ import os.path
 import numpy as np
 import pandas as pd
 
-df = pd.read_csv('./data/ubc_course_calendar_data.csv')
+df = pd.read_csv('./data/ubc_course_calendar_data.csv', dtype=str)
 
 
 def select_data(year='2018W', term='1', campus='UBC', data=df):
@@ -15,6 +15,12 @@ def select_data(year='2018W', term='1', campus='UBC', data=df):
     data = data[mask1 & mask2 & mask3]
 
     # print(f'Current number of courses: {data.shape[0]}')
+    def fix_course_number(x):
+        x = str(x)
+        if len(x) < 3:
+            x = '0'*(3-len(x)) + x
+        return x
+    data['COURSE_NUMBER'] = data['COURSE_NUMBER'].apply(fix_course_number)
     data.to_csv(f'./data/{year}T{term}_{campus}.csv')
     return data
 
@@ -53,7 +59,7 @@ def add_prereqs(year='2018W', term='1', campus='UBC'):
     if not os.path.exists(f'./data/{year}T{term}_{campus}.csv'):
         select_data(year, term, campus)
 
-    data = pd.read_csv(f'./data/{year}T{term}_{campus}.csv')
+    data = pd.read_csv(f'./data/{year}T{term}_{campus}.csv', dtype=str)
     data = data.drop(['Unnamed: 0'], axis=1)
 
     course_req = []

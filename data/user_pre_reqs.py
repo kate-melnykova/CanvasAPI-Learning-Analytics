@@ -10,12 +10,13 @@ url_default = 'https://docs.google.com/spreadsheets/d/1kPzVTGq_dqic6YZbQvnE9WvRW
 def fill_user_prereq(year='2018W', term='1', campus='UBC', url=url_default):
     url = url.replace('/edit#gid=', '/export?format=csv&gid=')
 
-    user_data = pd.read_csv(url, dtype=str)
-    user_data['subject_code'] = user_data['subject_code'].apply(lambda x: x.strip())
-    user_data['course_number'] = user_data['course_number'].apply(lambda x: x.strip())
+    user_data = pd.read_csv(url,
+                            dtype=str)
+    user_data['subject_code'] = user_data['subject_code'].apply(lambda x: str(x).strip())
+    user_data['course_number'] = user_data['course_number'].apply(lambda x: str(x).strip())
 
-    course_data = pd.read_csv(f'./data/{year}T{term}_{campus}_processed.csv')
-
+    course_data = pd.read_csv(f'./data/{year}T{term}_{campus}_processed.csv',
+                              dtype=str)
 
     def is_course_taken(course: str) -> bool:
         subject_code = course[0]
@@ -33,8 +34,6 @@ def fill_user_prereq(year='2018W', term='1', campus='UBC', url=url_default):
             return np.nan
         return json.dumps([is_course_taken(course) for course in course_list])
 
-
     course_data['PRE_REQ_SATISFIED'] = course_data['PREREQ_LIST'].apply(is_course_list_taken)
-    print('I am here')
     course_data.to_csv(f'./data/user_{year}T{term}_{campus}_reqs_filled.csv')
 

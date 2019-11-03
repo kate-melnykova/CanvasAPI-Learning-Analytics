@@ -1,3 +1,5 @@
+import json
+
 class Section:
     def __init__(self, data):
         self.session_year = data['SESSION_YEAR']
@@ -7,9 +9,10 @@ class Section:
         self.subject_code = data['SUBJECT_CODE']
         self.course_number = data['COURSE_NUMBER']
         self.section_number = data['SECTION_NUMBER']
+        self.section_type = data['SECTION_TYPE']
         self.credits = data['CREDITS']
-        self.pre_requisitive_descriptions = data['PRE_REQUISITIVE_DESCRIPTIONS']
-        self.co_prerequisitive_descriptions = data['CO_REQUISITIVE_DESCRIPTIONS']
+        self.pre_requisitive_descriptions = data['PRE_REQUISITE_DESCRIPTIONS']
+        self.co_prerequisitive_descriptions = data['CO_PRE_REQUISITE_DESCRIPTIONS']
         self.term = data['TERM']
         self.daysmet = data['DAYSMET']
         self.start_time = data['START_TIME']
@@ -22,7 +25,8 @@ class Section:
         self.currently_registered = data['CURRENTLY_REGISTERED']
         self.general_seats_remaining = data['GENERAL_SEATS_REMAINING']
         self.restricted_seats_remaining = data['RESTRICTED_SEATS_REMAINING']
-        self.prereq_list = data['PREREQ_LIST']
+        self.prereq_list = json.loads(data['PREREQ_LIST'])
         self.prereq_cond = data['PREREQ_COND']
         self.prereq_grade = data['PREREQ_GRADE']
-        self.prereq_titles = data['PREREQ_TITLES']
+        self.prereq_titles = json.loads(data['PREREQ_TITLES'])
+        self.prereq_satisfied = json.loads(data['PRE_REQ_SATISFIED'])

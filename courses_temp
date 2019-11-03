@@ -7,3 +7,5 @@ N/A
 N/A
 N/A
 CPSC 110	CPSC 213, 221
+
+: {{courses[0].prereq_titles[i]}} : {{courses[0].pre_req_satisfied}}
