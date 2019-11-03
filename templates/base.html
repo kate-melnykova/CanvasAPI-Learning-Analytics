@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UBC personalized academic calendar</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="topnav">
+        <a href="./getting_started">Getting started</a>
+        <a href="./search_courses">Search courses</a>
+        <a href="./update_course_calendar">Update course calendar</a>
+        <a href="./credentials">Credentials</a>
+    </div>
+<div>
+    <h1>UBC personalized academic calendar</h1>
+    <p> Hello!</p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div style="background-color: beige;">
+        <ul class=flashes>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+        </ul>
+        </div>
+    {% endif %}
+    {% endwith %}
+    {% block form %}
+    {% endblock %}
+</div>
+</body>
+</html>

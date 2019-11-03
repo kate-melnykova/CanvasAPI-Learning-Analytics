@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block form %}
+<fieldset>
+<form action="/update_course_calendar/processing" method="POST">
+    <p style="text-align: center;">
+        Update the dataset
+        <input type="submit" name="submit" value="Submit"></p>
+</form>
+ <p style="text-align: center;">
+     The update will take a while. Please wait patiently without refreshing the page.
+ </p>
+    </fieldset>
+{% endblock %}

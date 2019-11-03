@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block form %}
+    <fieldset>
+    <h1> Hello! </h1>
+    <form action="/getting_started/processing" method="POST">
+        You are about to get personalized course calendar.
+
+        Please upload the link to the Google Spreadsheet
+        that contains the courses you have taken!
+        <p style="text-align: center;">
+            <input type="text" name="url" value="Google Spreadsheet URL" size="40">
+            <input type="submit" name="submit" value="Submit"></p>
+    </form>
+
+    </fieldset>
+{% endblock %}
