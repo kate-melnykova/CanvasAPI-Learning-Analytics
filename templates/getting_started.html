@@ -22,7 +22,7 @@
         <div>
             <form action="/getting_started/processing" method="POST">
             {%set url ='https://docs.google.com/spreadsheets/d/1BbmZIAV-ou7Nh08Olx0F4MPsPEAY7XgYbF6t1bp2NWM/edit#gid=1364618903' %}
-            <input type="hidden" name="url" value=url>
+            <input type="hidden" name="url" value={{url}}>
             <p style="text-align: center;"><input type="submit" name="submit_url" value="submit"></p>
             </form>
         </div>

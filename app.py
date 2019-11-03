@@ -57,12 +57,13 @@ def getting_started():
 @app.route('/getting_started/processing', methods=["POST"])
 def login_processing():
     url = request.form['url']
+    print(f'url is {url}')
     r = make_response(redirect(url_for('search_courses')))
     r.set_cookie('url', aes_encrypt(url))
     r.set_cookie('year', '2018W1')
     r.set_cookie('term', '1')
     r.set_cookie('campus', 'UBC')
-    fill_user_prereq()
+    fill_user_prereq(url=url)
     return r
 
 
