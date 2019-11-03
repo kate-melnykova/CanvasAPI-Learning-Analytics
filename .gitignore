@@ -107,3 +107,4 @@ venv.bak/
 ../.idea
 /venv/
 /idea/
+./data/user_pre_reqs_filled.csv
