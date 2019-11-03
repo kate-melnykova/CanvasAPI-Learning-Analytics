@@ -8,7 +8,7 @@ from auth.model import User, AnonymousUser
 from data.data_processing import add_prereqs
 
 app = Flask(__name__)
-app.secret_key = 'super secret key'
+app.secret_key = '4527e79a-17ef-4749-8dd4-7699e589e2b8'
 
 
 @app.before_request

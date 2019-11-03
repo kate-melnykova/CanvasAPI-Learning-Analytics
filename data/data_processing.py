@@ -86,7 +86,5 @@ def add_prereqs(year='2018W', term='1', campus='UBC'):
 
     data['PREREQ_GRADE'] = grade_req
 
-
     data['PREREQ_TITLES'] = data['PREREQ_LIST'].apply(find_course_title)
-
     data.to_csv(f'./data/{year}T{term}_{campus}_processed.csv')
