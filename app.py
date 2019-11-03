@@ -2,6 +2,10 @@ from functools import wraps
 
 from flask import Flask, render_template, request, url_for,\
     redirect, flash, make_response
+from wtforms import Form
+from wtforms import StringField
+from wtforms import PasswordField, BooleanField
+from wtforms import validators
 
 from auth.crypting import aes_encrypt, aes_decrypt
 from auth.model import User, AnonymousUser
@@ -11,6 +15,15 @@ from data.select_all_sections import select_all_sections
 
 app = Flask(__name__)
 app.secret_key = '4527e79a-17ef-4749-8dd4-7699e589e2b8'
+
+
+class URLForm(Form):
+    url = StringField('URL to Google Spreadsheet', [validators.Length(min=10, max=55)])
+
+
+class SearchForm(Form):
+    subject_code = StringField('Subject code', [validators.Length(min=3, max=5)])
+    course_number = StringField('Section number', [validators.Length(min=3, max=3)])
 
 
 @app.before_request
@@ -56,7 +69,8 @@ def login_processing():
 @app.route('/search_courses')
 @login_required
 def search_courses():
-    return render_template('search_courses.html')
+    searchform = SearchForm(request.form)
+    return render_template('search_courses.html', searchform=searchform)
 
 
 @app.route('/view_course')
@@ -64,10 +78,10 @@ def search_courses():
 def view_course():
     subject_code = request.args.get('subject_code')
     course_number = request.args.get('course_number')
-    # print(subject_code, course_number)
-    # select all section
     courses = select_all_sections(subject_code, course_number)
-    # print(courses[0].prereq_list)
+    if not courses:
+        flash('No such courses found!')
+        return redirect(url_for('search_courses'))
     return render_template('view_course.html', courses=courses)
 
 

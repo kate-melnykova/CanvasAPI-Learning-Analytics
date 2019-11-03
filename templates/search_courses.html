@@ -2,5 +2,12 @@
 
 {% block form %}
     Select the course of interest.
-
+    <fieldset>
+        <form action="./view_course" method="GET">
+            {{ searchform.csrf }}
+        <p> {{ searchform.subject_code.label }}: {{ searchform.subject_code(class="css_class") }}</p>
+        <p> {{ searchform.course_number.label }}: {{ searchform.course_number(class="css_class") }}</p>
+            <p style="text-align: center;"><input type="submit" name="submit" value="submit"></p>
+        </form>
+    </fieldset>
 {% endblock %}

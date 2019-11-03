@@ -4,14 +4,16 @@
     <div> <h2>{{ courses[0].subject_code }} {{courses[0].course_number}}</h2>
     <p>{{courses[0].course_description}}</p>
     <p> Credits: {{courses[0].credits}}</p>
-     Pre-requisitives: {{courses[0].prereq_cond}}
+     Pre-requisitives: {% if courses[0].prereq_cond %}
+                            {{courses[0].prereq_cond}}
+                        {% endif %}
         {% set first_section = courses[0] %}
         {% set prereq_lst = first_section.prereq_list %}
         {% for i in range(prereq_lst|length) %}
             <p> {% if first_section.prereq_satisfied[i] %}
-                    yes
+                    <img width="10pt" src="/static/checkmark.png" alt="completed">
                 {% else %}
-                    no
+                    <img width="10pt" src="/static/cross.png" alt="not completed">
                 {% endif %}
                 : {{prereq_lst[i][0]}}
                 {% if prereq_lst[i][1]|length < 2 %}
@@ -46,9 +48,17 @@
                 <td> {{section.daysmet}}</td>
                 <td> {{section.start_time}}</td>
                 <td> {{section.end_time}}</td>
-                <td> {{section.instructors}}</td>
-                <td> {{section.building}} </td>
-                <td> {{section.room_number}}</td>
+                <td> {% if section.instructors %}
+                    {{section.instructors}}
+                    {% endif %}
+                </td>
+                <td> {% if section.building %}
+                    {{section.building}}
+                    {% endif %}</td>
+                <td> {% if section.room_number %}
+                    {{section.room_number}}
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </table>

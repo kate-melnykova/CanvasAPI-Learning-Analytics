@@ -41,6 +41,9 @@ def add_prereq_titles(pre_reqs: str or None) -> List[Tuple[str]]:
     elif course_r.startswith('One of '):
         condition = 'one of'
         course_r = course_r[7:]
+    elif course_r.startswith('Either:'):
+        condition = 'either'
+        course_r = course_r[7:]
     else:
         condition = ''
     course_r = course_r.split(',')
