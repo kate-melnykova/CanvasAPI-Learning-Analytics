@@ -1,7 +1,7 @@
 ### Canvas API learning analytics
 ## November, 2019
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Y6EKTarIxWM/0.jpg)](https://www.youtube.com/watch?v=Y6EKTarIxWM)
+[![videoreport](https://img.youtube.com/vi/Y6EKTarIxWM/0.jpg)](https://www.youtube.com/watch?v=Y6EKTarIxWM)
 
 Source: https://learninganalytics.ubc.ca/with-access-to-five-years-of-course-data-students-create-new-apps-at-the-learning-analytics-hackathon/
 
@@ -12,3 +12,4 @@ For the first time, participants were given access to 5 years’ worth of UBC’
 Working as a team, we created a secure app with focus on data privacy, allowing students to see which courses they are eligible to take.
 
 <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://https://github.com/kate-melnykova/CanvasAPI-Learning-Analytics/blob/master/LAHackathon_Presentation.pptx]' width='100%' height='600px' frameborder='0'>
+[![presentation]()]
