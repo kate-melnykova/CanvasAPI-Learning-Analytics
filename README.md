@@ -10,3 +10,5 @@ Over 50 students, researchers, and instructors attended UBC’s sixth learning a
 For the first time, participants were given access to 5 years’ worth of UBC’s course calendar data, which includes descriptions, pre/co-requisites, enrolment numbers, instructor names, and more, about every course taught at UBC from 2014-2018.
 
 Working as a team, we created a secure app with focus on data privacy, allowing students to see which courses they are eligible to take.
+
+<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://https://github.com/kate-melnykova/CanvasAPI-Learning-Analytics/blob/master/LAHackathon_Presentation.pptx]' width='100%' height='600px' frameborder='0'>
