@@ -11,5 +11,4 @@ For the first time, participants were given access to 5 years’ worth of UBC’
 
 Working as a team, we created a secure app with focus on data privacy, allowing students to see which courses they are eligible to take.
 
-<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://https://github.com/kate-melnykova/CanvasAPI-Learning-Analytics/blob/master/LAHackathon_Presentation.pptx]' width='100%' height='600px' frameborder='0'>
-[![presentation]()]
+[![presentation](LAHackathon_presentation_pdf.pdf)](https://github.com/kate-melnykova/CanvasAPI-Learning-Analytics/blob/master/LAHackathon_presentation_pdf.pdf)
