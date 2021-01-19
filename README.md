@@ -1,4 +1,5 @@
-### Canvas API learning analytics
+# Canvas API learning analytics hackathon
+Design an app to improve students' experience using the course data for the last 5 years
 ## November, 2019
 
 [![videoreport](https://img.youtube.com/vi/Y6EKTarIxWM/0.jpg)](https://www.youtube.com/watch?v=Y6EKTarIxWM)
